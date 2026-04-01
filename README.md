@@ -94,14 +94,14 @@ SimpleLang is a "simple" programming language with a limited set of constructs f
         A[i] = A[i] * 2
         A[i+1] = A[i]
     ```
-5. SimpleLang supports vector operations. `A[0:10]` represents all elements from index 0 to 9. Strided access is also supported: `A[0:10:2]` accesses indices 0 to 9 with stride 2. 
+5. SimpleLang supports vector operations. `A[0:10]` represents all elements from index 0 to 9. Strided access is also supported: `A[0:10:2]` accesses indices 0 to 9 with stride 2.
     ```
         A[0:10] = A[0:10] * 2
         A[0:10:2] = A[0:10:2] * 2
     ```
 
      **Note:** SimpleLang abstracts vector ranges from the underlying machine's vector width. Users can specify any vector range, and the compiler automatically maps it to the target processor's hardware vector width (this is already implemented for you).
-6. SimpleLang supports for-loops. `range(0,10)` iterates from 0 to 9 in the forward direction only. Strided loops use an additional parameter: `range(0,10,2)` iterates with stride 2.
+6. SimpleLang supports for-loops. `range(0,10)` iterates from 0 to 9 in the forward direction only. Strided loops use an additional parameter: `range(0,10,2)` iterates with stride 2. Note: the loop bounds must be constant literals.
     ```
         for i in range(0,10)
             A[i] = A[i] + 12
