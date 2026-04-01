@@ -1,6 +1,6 @@
 # Homework 4: Auto-Vectorizer
 
-**Due Date:** TBD
+**Due Date:** April 17
 
 ## Table of Contents
 * [Problem statement](#problem-statement)
