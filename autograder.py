@@ -8,7 +8,7 @@ assignment is 25 (i.e. 1 point per test case). The test cases are split as follo
     2. Dependency Testing [8 points]
     3. Unvectorizable cases [3 points]
     4. Vectorizable cases [10 points]
-        - 0.5 points given if one of dependency testing is correct
+        - 0.5 points given if dependency testing is correct
     5. Vectorization with normalization and constant folding [2 points]
         - 0.5 points given if normalization is correct
 """
