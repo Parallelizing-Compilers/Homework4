@@ -16,6 +16,7 @@
     * [Running our Code](#running-our-code)
 * [Grading](#grading)
     * [Submission Details](#submission-details)
+* [FAQs](#faqs)
 * [Documentation](#documentation)
 * [References](#references)
 
@@ -111,9 +112,11 @@ SimpleLang is a "simple" programming language with a limited set of constructs f
             A[i] = A[i] + 12
         end
     ```
-7. SimpleLang does not support
+7. SimpleLang has the following restrictions
     - Use of index expressions within vector ranges (i.e. `A[i:i+10]`) is not supported. 
-    - Multidimensional vectorization  (i.e. `A[1:10,1:10]`) is not supported
+    - Multidimensional vectorization  (i.e. `A[1:10,1:10]`) is not supported.
+    - All statements are assumed to be in the innermost loop.
+    - Each loop will have a unique index variable (i.e. two loops cannot use the index variable `i`)
 
 ### Key Compiler Components
 
@@ -199,6 +202,33 @@ On Pace ICE, we use any [Dual Xeon Gold 6226 processor](https://gatech.service-n
 2. Please ensure your code is tested and verified on a PACE machine before final submission. Passing test cases on this specific machine will be the sole basis for grading.
 3. You are free to add additional methods to help better organize your code but do not modify the interface of any provided functions or edit files outside those specified in the task description.
 4. Apart from the tests included here, the submissions will be graded on a set of hidden test cases.
+
+# FAQs
+1. **Are there any restrictions on the loop bounds in SimpleLang?**
+    - _The loop bound and stride in SimpleLang are always constant literals._
+
+2. **When normalizing what index do we start from?**
+    - _Normalized loops should start from index 0._
+
+3. **What index do we assign to ZIV dependencies?**
+    - _Assign the index of the innermost loop within which both statements are present_
+
+4. **What index do we assign to level infinity dependencies?**
+    - _Assign `Index("inf")`_
+
+5. **Can index variables be assigned to in a SimpleLang program?** (i.e. i = i + 1)
+    - _No, index variables cannot be assigned to in a SimpleLang program. Store operations can only be performed on arrays._
+
+6. **Can array subscripts contain non-index variables?** (i.e. A[A[1]*2])
+    - _No, Array subscripts can only be arithmetic combination of loop variable and literals._
+
+7. **Do we need to consider MIV cases?** (i.e. A[i+j])
+    - _The assignment only tests for ZIV, Strong SIV and Weak Zero SIV cases. MIV can be ignored._
+
+8. **In the case where multiple dimensions can be vectorized, which one do we vectorize?**
+    - _We will not evaluate your code on cases where multiple dimensions can be vectorized._
+
+
 
 # Documentation
 
