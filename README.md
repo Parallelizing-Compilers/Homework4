@@ -205,7 +205,7 @@ On Pace ICE, we use any [Dual Xeon Gold 6226 processor](https://gatech.service-n
 
 # FAQs
 1. **Are there any restrictions on the loop bounds in SimpleLang?**
-    - _The loop bound and stride in SimpleLang are always constant literals._
+    - _The loop bound and stride in SimpleLang are always constant literals. Additionally, the stride will always be positive._
 
 2. **When normalizing what index do we start from?**
     - _Normalized loops should start from index 0._
